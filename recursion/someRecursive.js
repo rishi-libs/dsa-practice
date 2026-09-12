@@ -1,13 +1,7 @@
-function someRecursive(arr, callback) {
-  
-  function helper(index = 0) {
-    if (index === arr.length)
-      return false;
-
-    return callback(arr[index]) || helper(index + 1);
-  }
-
-  return helper();
+function someRecursive(arr, cb) {
+  if (arr.length === 0)
+    return false;
+  return cb(arr[0]) || someRecursive(arr.slice(1), cb);
 }
 
 const isOdd = val => val % 2 !== 0;

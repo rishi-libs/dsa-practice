@@ -1,16 +1,7 @@
-function isPalindrome(str) {
-  
-  function helper(index = 0) {
-    if (index === Math.floor(str.length / 2))
-      return true;
-
-    if (str[index] !== str[str.length - index - 1])
-      return false;
-
-    return helper(index + 1);
-  }
-
-  return helper();
+function isPalindrome(str, index = 0) {
+  if (index === Math.floor(str.length / 2))
+    return true;
+  return str[index] === str[str.length - 1 - index] && isPalindrome(str, index + 1);
 }
 
 console.log(isPalindrome('awesome')); // false

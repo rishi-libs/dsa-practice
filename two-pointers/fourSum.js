@@ -14,7 +14,11 @@ function fourSum(nums, target) {
       let right = n - 1;
 
       while (left < right) {
-        const sum = nums[i] + nums[j] + nums[left] + nums[right];
+        const sum =
+          nums[i] +
+          nums[j] +
+          nums[left] +
+          nums[right];
 
         if (sum === target) {
           result.push([
@@ -24,12 +28,19 @@ function fourSum(nums, target) {
             nums[right]
           ]);
 
-          while (left < right && nums[left] === nums[left + 1]) left++;
-          while (left < right && nums[right] === nums[right - 1]) right--;
+          while (
+            left < right &&
+            nums[left] === nums[left + 1]
+          ) left++;
+
+          while (
+            left < right &&
+            nums[right] === nums[right - 1]
+          ) right--;
 
           left++;
           right--;
-        } else if (sum < 0) {
+        } else if (sum < target) {
           left++;
         } else {
           right--;
@@ -37,10 +48,11 @@ function fourSum(nums, target) {
       }
     }
   }
+
   return result;
 }
 
 
-console.log(fourSum([1,0,-1,0,-2,2], 0)); // [ [ -2, -1, 1, 2 ], [ -2, 0, 0, 2 ], [ -1, 0, 0, 1 ] ]
-console.log(fourSum([2,2,2,2,2], 8)); // [ [ 2, 2, 2, 2 ] ]
+console.log(fourSum([1, 0, -1, 0, -2, 2], 0)); // [ [ -2, -1, 1, 2 ], [ -2, 0, 0, 2 ], [ -1, 0, 0, 1 ] ]
+console.log(fourSum([2, 2, 2, 2, 2], 8)); // [ [ 2, 2, 2, 2 ] ]
 
